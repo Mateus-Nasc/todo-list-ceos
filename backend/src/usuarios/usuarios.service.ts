@@ -1,4 +1,8 @@
-import { ConflictException, Injectable } from '@nestjs/common';
+import {
+  ConflictException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { CreateUsuarioDto } from './dto/create-usuario.dto';
 import { UpdateUsuarioDto } from './dto/update-usuario.dto';
 import { Repository } from 'typeorm';
@@ -29,19 +33,39 @@ export class UsuariosService {
     }
   }
 
-  findAll() {
-    return `This action returns all usuarios`;
+  async findAll() {
+    //aqui retorna os usuários com as tarefas relacionadas
+    return await this.usuarioRepository.find({ relations: { tarefas: true } });
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} usuario`;
+  async findOne(id: number) {
+    const usuario = await this.usuarioRepository.findOne({
+      where: { id },
+      relations: { tarefas: true },
+    });
+
+    if (!usuario) {
+      throw new NotFoundException(`Usuário com ID ${id} não encontrado`);
+    }
+
+    return usuario;
   }
 
-  update(id: number, updateUsuarioDto: UpdateUsuarioDto) {
-    return `This action updates a #${id} usuario`;
+  async update(id: number, updateUsuarioDto: UpdateUsuarioDto) {
+    const usuario = await this.usuarioRepository.preload({
+      id: id,
+      ...updateUsuarioDto,
+    });
+
+    if (!usuario) {
+      throw new NotFoundException(`Usuário com ID ${id} não encontrado`);
+    }
+
+    return this.usuarioRepository.save(usuario);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} usuario`;
+  async remove(id: number) {
+    const usuario = await this.findOne(id);
+    return await this.usuarioRepository.remove(usuario);
   }
 }

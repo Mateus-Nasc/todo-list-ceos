@@ -5,18 +5,18 @@ import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 @Entity('usuarios')
 export class Usuario {
   @PrimaryGeneratedColumn()
-  id: number;
+  id!: number;
 
   @Column({ type: 'varchar', length: 60 })
-  nome: string;
+  nome!: string;
 
   @Column({ unique: true })
-  email: string;
+  email!: string;
 
   @Column()
   @Exclude()
-  senha: string;
+  senha!: string;
 
   @OneToMany(() => Tarefa, (tarefa) => tarefa.usuario)
-  tarefas: Tarefa[];
+  tarefas!: Tarefa[];
 }

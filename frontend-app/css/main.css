@@ -1,0 +1,67 @@
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: #5B4FCF;
+      padding: 18px 40px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo {
+      font-size: 26px;
+      color: #FF4D72;
+    }
+
+    .line {
+      width: 1px;
+      height: 22px;
+      background: rgba(255,255,255,0.25);
+    }
+
+    .logo-sub {
+      font-size: 13px;
+      color: rgba(255,255,255,0.85);
+    }
+
+    main {
+      padding: 32px 40px 40px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 28px;
+    }
+
+    p {
+      font-size: 16px;
+      font-weight: 1000;
+      color: black;
+    }
+
+
+
+    .search input {
+      background: rgba(128, 128, 128, 0.10);
+      border: 0px;
+      border-radius: 8px;
+      padding: 8px 14px 8px 10px;
+      font-size: 13px;
+      color: black;
+      outline: none;
+    }
+
+    .search input::placeholder {
+      color: gray;
+    }
+    .image{
+      margin-left: 50px;
+      width: 15%;
+    }

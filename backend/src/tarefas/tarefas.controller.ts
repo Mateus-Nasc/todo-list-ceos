@@ -17,6 +17,7 @@ import { UseGuards } from '@nestjs/common';
 import { AuthTokenGuard } from 'src/auth/guards/auth-token.guard';
 import { TokenPayloadParam } from 'src/auth/params/token-payload.param';
 import { TokenPayloadDto } from 'src/auth/dto/token-payload.dto';
+import { FindTarefaDto } from './dto/find-tarefa.dto';
 
 @UseGuards(AuthTokenGuard)
 @Controller('tarefas')
@@ -34,12 +35,10 @@ export class TarefasController {
   @Get()
   findAll(
     @TokenPayloadParam() tokenPayload: TokenPayloadDto,
-    @Query('search') search?: string,
-    @Query('completada') completada?: string,
-    @Query('page') page?: string,
-    @Query('limit') limit?: string,
+    @Query()
+    filtros: FindTarefaDto,
   ){
-    return this.tarefasService.findAll(tokenPayload.sub, search, completada, page, limit)
+    return this.tarefasService.findAll(tokenPayload.sub, filtros)
   }
 
   @Get(':id')

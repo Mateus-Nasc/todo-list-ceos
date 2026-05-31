@@ -1,9 +1,10 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { CreateTarefaDto } from './dto/create-tarefa.dto';
 import { UpdateTarefaDto } from './dto/update-tarefa.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Tarefa } from './entities/tarefa.entity';
+import { FindTarefaDto } from './dto/find-tarefa.dto';
 
 @Injectable()
 export class TarefasService {
@@ -23,10 +24,22 @@ export class TarefasService {
   }
 
   //retorna todas as tarefas de um usuário
-  async findAll(userId: number, search?: string, completada?: string, page?: string, limit?: string) {
+  async findAll(userId: number, filtros: FindTarefaDto) {
+    const { search, completada, page, limit } = filtros
     const pageNumber = Number(page) || 1
     const limitNumber = Number(limit) || 10
     const offset = (pageNumber - 1) * limitNumber
+
+    if(pageNumber < 1){
+      throw new BadRequestException({
+        message: 'page deve ser maior que zero'
+      })
+    }
+    if(limitNumber < 1 || limitNumber > 100){
+      throw new BadRequestException({
+        message: 'limit deve estar entre 1 e 100'
+      })
+    }
 
     const query = this.tarefaRepository
       .createQueryBuilder('tarefa')

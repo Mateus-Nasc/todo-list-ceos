@@ -30,7 +30,7 @@ export class AuthService {
     }
 
     const isPasswordValid = await this.hashingService.compare(
-      loginDto.password,
+      loginDto.senha,
       usuario.senha,
     );
     if (!isPasswordValid) {

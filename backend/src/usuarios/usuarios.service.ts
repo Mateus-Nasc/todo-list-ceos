@@ -1,5 +1,6 @@
 import {
   ConflictException,
+  ForbiddenException,
   Injectable,
   NotFoundException,
   UnauthorizedException,
@@ -10,12 +11,14 @@ import { Repository } from 'typeorm';
 import { Usuario } from './entities/usuario.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { TokenPayloadDto } from 'src/auth/dto/token-payload.dto';
+import { HashingService } from 'src/auth/hashing/hashing.service';
 
 @Injectable()
 export class UsuariosService {
   constructor(
     @InjectRepository(Usuario)
     private readonly usuarioRepository: Repository<Usuario>,
+    private readonly hashingService: HashingService,
   ) {}
   async create(createUsuarioDto: CreateUsuarioDto) {
     if (createUsuarioDto.senha !== createUsuarioDto.confirmarSenha) {
@@ -23,6 +26,9 @@ export class UsuariosService {
     }
 
     try {
+      const senhaHash = await this.hashingService.hash(createUsuarioDto.senha);
+      createUsuarioDto.senha = senhaHash;
+
       const { confirmarSenha, ...dadosParaSalvar } = createUsuarioDto;
 
       const usuarioNovo = this.usuarioRepository.create(dadosParaSalvar);
@@ -33,11 +39,6 @@ export class UsuariosService {
       }
       throw error;
     }
-  }
-
-  async findAll() {
-    //aqui retorna os usuários com as tarefas relacionadas
-    return await this.usuarioRepository.find({ relations: { tarefas: true } });
   }
 
   async findOne(id: number) {
@@ -53,7 +54,6 @@ export class UsuariosService {
     return usuario;
   }
   async findProfile(id: number, tokenPayload: TokenPayloadDto) {
-    // Verificar se o usuário é o próprio usuário autenticado
     if (id !== tokenPayload.sub) {
       throw new UnauthorizedException(`Você não pode acessar outro perfil`);
     }
@@ -61,10 +61,23 @@ export class UsuariosService {
     return await this.findOne(id);
   }
 
-  async update(id: number, updateUsuarioDto: UpdateUsuarioDto) {
+  async update(
+    id: number,
+    updateUsuarioDto: UpdateUsuarioDto,
+    tokenPayload: TokenPayloadDto,
+  ) {
+    if (id !== tokenPayload.sub) {
+      throw new ForbiddenException(`Você não pode alterar outro perfil`);
+    }
+    const { senha, ...dadosUsuario } = updateUsuarioDto;
+
+    if (senha) {
+      dadosUsuario['senha'] = await this.hashingService.hash(senha);
+    }
+
     const usuario = await this.usuarioRepository.preload({
       id: id,
-      ...updateUsuarioDto,
+      ...dadosUsuario,
     });
 
     if (!usuario) {

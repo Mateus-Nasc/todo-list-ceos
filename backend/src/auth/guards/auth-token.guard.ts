@@ -40,7 +40,7 @@ export class AuthTokenGuard implements CanActivate {
     }
     return true; //true se o token for válido
   }
-  //esse Request é para vim do express
+
   extractTokenFromRequest(request: Request): string | undefined {
     const authorization = request.headers?.authorization;
     if (!authorization || typeof authorization !== 'string') {

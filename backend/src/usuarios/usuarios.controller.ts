@@ -44,8 +44,9 @@ export class UsuariosController {
   update(
     @Param('id', ParseIntIdPipe) id: number,
     @Body() updateUsuarioDto: UpdateUsuarioDto,
+    @TokenPayloadParam() tokenPayload: TokenPayloadDto,
   ) {
-    return this.usuariosService.update(id, updateUsuarioDto);
+    return this.usuariosService.update(id, updateUsuarioDto, tokenPayload);
   }
 
   @UseGuards(AuthTokenGuard)

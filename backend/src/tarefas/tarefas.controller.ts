@@ -36,8 +36,10 @@ export class TarefasController {
     @TokenPayloadParam() tokenPayload: TokenPayloadDto,
     @Query('search') search?: string,
     @Query('completada') completada?: string,
+    @Query('page') page?: string,
+    @Query('limit') limit?: string,
   ){
-    return this.tarefasService.findAll(tokenPayload.sub, search, completada)
+    return this.tarefasService.findAll(tokenPayload.sub, search, completada, page, limit)
   }
 
   @Get(':id')

@@ -23,7 +23,11 @@ export class TarefasService {
   }
 
   //retorna todas as tarefas de um usuário
-  async findAll(userId: number, search?: string, completada?: string) {
+  async findAll(userId: number, search?: string, completada?: string, page?: string, limit?: string) {
+    const pageNumber = Number(page) || 1
+    const limitNumber = Number(limit) || 10
+    const offset = (pageNumber - 1) * limitNumber
+
     const query = this.tarefaRepository
       .createQueryBuilder('tarefa')
       .innerJoin('tarefa.usuario', 'usuario')
@@ -47,6 +51,10 @@ export class TarefasService {
         }
       )
     }
+
+    query.orderBy('tarefa.criadoEm', 'DESC')
+
+    query.skip(offset).take(limitNumber);
 
     return query.getMany();
   }

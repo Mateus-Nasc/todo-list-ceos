@@ -21,7 +21,4 @@ export class CreateTarefaDto {
   @IsOptional()
   @IsBoolean()
   completada?: boolean;
-
-  @IsInt()
-  usuarioId!: number;
 }

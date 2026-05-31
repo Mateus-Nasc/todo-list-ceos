@@ -7,7 +7,7 @@ import {
   Param,
   Delete,
   // ParseIntPipe,
-  Request,
+  Query,
 } from '@nestjs/common';
 import { TarefasService } from './tarefas.service';
 import { CreateTarefaDto } from './dto/create-tarefa.dto';
@@ -29,6 +29,15 @@ export class TarefasController {
     @TokenPayloadParam() tokenPayload: TokenPayloadDto,
   ) {
     return this.tarefasService.create(tokenPayload.sub, createTarefaDto);
+  }
+
+  @Get()
+  findAll(
+    @TokenPayloadParam() tokenPayload: TokenPayloadDto,
+    @Query('search') search?: string,
+    @Query('completada') completada?: string,
+  ){
+    return this.tarefasService.findAll(tokenPayload.sub, search, completada)
   }
 
   @Get(':id')

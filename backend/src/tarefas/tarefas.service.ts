@@ -23,14 +23,32 @@ export class TarefasService {
   }
 
   //retorna todas as tarefas de um usuário
-  async findAll(userId: number) {
-    return this.tarefaRepository.find({
-      where: {
-        usuario: {
-          id: userId,
+  async findAll(userId: number, search?: string, completada?: string) {
+    const query = this.tarefaRepository
+      .createQueryBuilder('tarefa')
+      .innerJoin('tarefa.usuario', 'usuario')
+      .where('usuario.id = :userId', {
+        userId,
+      });
+
+    if (search) {
+      query.andWhere(
+        'LOWER(tarefa.titulo) LIKE LOWER(:search)',
+        {
+          search: `%${search}%`,
         },
-      },
-    });
+      );
+    }
+    if(completada !== undefined){
+      query.andWhere(
+        'tarefa.completada = :completada',
+        {
+          completada: completada === 'true',
+        }
+      )
+    }
+
+    return query.getMany();
   }
 
   //retorna a tarefa de determinado id

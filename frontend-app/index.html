@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flow</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/task.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <span class="logo">Flow</span>
+    <div class="line"></div>
+    <span class="logo-sub">Organize o Fluxo De Suas Tarefas</span>
+  </header>
+
+  <main>
+
+    <!-- Introdução -->
+    <div class="top-bar">
+      <p >Olá, nome_do_usuario</p>
+      <div class="search">
+        <input type="text" placeholder="Buscar">
+      </div>
+    </div>
+    <img src="img/Group.png" alt="Homem com suas tarefas" class="image">
+
+
+    <div class="board" id="board">
+
+      <!-- Tarefas -->
+      <div class="task-list">
+        <div class="task-list-header">
+          <input class="task-list-title"placeholder="Tarefa 1"></input>
+          <button class="Task-complete">✓</button>
+          <button class="Task-delete">X</button>
+        </div>
+        <span class="Task-date">criado em: xx/xx/xxxx:</span>
+        <input class="Task-description" placeholder="-Exemplo de descrição"></input>
+      </div>
+
+      <!-- Botão para criar lista(adicionar js pra funcionar) -->
+      <button class="btn-nova-lista" id="btn-add">
+        <div class="plus">+</div>
+        Nova Tarefa
+      </button>
+
+    </div>
+  </main>
+
+</body>
+</html>

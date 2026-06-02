@@ -37,8 +37,8 @@ export class TarefasController {
     @TokenPayloadParam() tokenPayload: TokenPayloadDto,
     @Query()
     filtros: FindTarefaDto,
-  ){
-    return this.tarefasService.findAll(tokenPayload.sub, filtros)
+  ) {
+    return this.tarefasService.findAll(tokenPayload.sub, filtros);
   }
 
   @Get(':id')

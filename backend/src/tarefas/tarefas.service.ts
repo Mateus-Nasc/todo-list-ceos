@@ -1,4 +1,8 @@
-import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { CreateTarefaDto } from './dto/create-tarefa.dto';
 import { UpdateTarefaDto } from './dto/update-tarefa.dto';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -25,20 +29,20 @@ export class TarefasService {
 
   //retorna todas as tarefas de um usuário
   async findAll(userId: number, filtros: FindTarefaDto) {
-    const { search, completada, page, limit } = filtros
-    const pageNumber = Number(page) || 1
-    const limitNumber = Number(limit) || 10
-    const offset = (pageNumber - 1) * limitNumber
+    const { search, completada, page, limit } = filtros;
+    const pageNumber = Number(page) || 1;
+    const limitNumber = Number(limit) || 10;
+    const offset = (pageNumber - 1) * limitNumber;
 
-    if(pageNumber < 1){
+    if (pageNumber < 1) {
       throw new BadRequestException({
-        message: 'page deve ser maior que zero'
-      })
+        message: 'page deve ser maior que zero',
+      });
     }
-    if(limitNumber < 1 || limitNumber > 100){
+    if (limitNumber < 1 || limitNumber > 100) {
       throw new BadRequestException({
-        message: 'limit deve estar entre 1 e 100'
-      })
+        message: 'limit deve estar entre 1 e 100',
+      });
     }
 
     const query = this.tarefaRepository
@@ -49,23 +53,17 @@ export class TarefasService {
       });
 
     if (search) {
-      query.andWhere(
-        'LOWER(tarefa.titulo) LIKE LOWER(:search)',
-        {
-          search: `%${search}%`,
-        },
-      );
+      query.andWhere('LOWER(tarefa.titulo) LIKE LOWER(:search)', {
+        search: `%${search}%`,
+      });
     }
-    if(completada !== undefined){
-      query.andWhere(
-        'tarefa.completada = :completada',
-        {
-          completada: completada === 'true',
-        }
-      )
+    if (completada !== undefined) {
+      query.andWhere('tarefa.completada = :completada', {
+        completada: completada === 'true',
+      });
     }
 
-    query.orderBy('tarefa.criadoEm', 'DESC')
+    query.orderBy('tarefa.criadoEm', 'DESC');
 
     query.skip(offset).take(limitNumber);
 

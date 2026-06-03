@@ -12,7 +12,7 @@ COPY . .
 
 RUN npm run build
 
-# Runtime -- Ambiente leve para execução
+# Runtime -- produção apenas o que importa
 
 FROM node:24-alpine
 

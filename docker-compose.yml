@@ -30,4 +30,12 @@ services:
 volumes:
   postgres_data:
 
-# frontend:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: todolist_frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - api

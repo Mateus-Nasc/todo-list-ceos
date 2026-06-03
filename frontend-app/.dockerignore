@@ -1,0 +1,19 @@
+# Controle de versão
+.git
+.gitignore
+
+# IDE
+.vscode
+.idea
+*.code-workspace
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Readme
+*.md
+ 

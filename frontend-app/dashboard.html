@@ -8,17 +8,16 @@
   <link rel="stylesheet" href="css/task.css">
 </head>
 <body>
- 
+
   <!-- Header -->
   <header>
     <span class="logo">Flow</span>
     <div class="line"></div>
     <span class="logo-sub">Organize o Fluxo De Suas Tarefas</span>
+    <button id="btn-logout" >Sair</button>
   </header>
- 
+
   <main>
- 
-    <!-- Introdução -->
     <div class="top-bar">
       <p>Olá, <span id="nome-usuario">...</span></p>
       <div class="search">
@@ -26,19 +25,15 @@
       </div>
     </div>
     <img src="img/Group.png" alt="Homem com suas tarefas" class="image">
- 
+
     <div class="board" id="board">
- 
-      <!-- espacinho pra tarefa dentro dessa diva -->
- 
-      <!-- Botão para criar nova tarefa -->
+      <!-- Tarefas inseridas pelo js -->
       <button class="btn-nova-lista" id="btn-add">
         <div class="plus">+</div>
         Nova Tarefa
       </button>
- 
     </div>
   </main>
- <script src="main.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>

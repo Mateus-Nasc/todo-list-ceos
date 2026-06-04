@@ -1,4 +1,7 @@
-const API_URL= window.location.origin.replace("-80.", "-3000.");
+const API_URL =
+  window.location.hostname === "localhost"
+    ? "http://localhost:3000"
+    : window.location.origin.replace("-80.", "-3000.");
 
 const signin = document.getElementById("signin");
 const signup = document.getElementById("signup");
@@ -52,7 +55,9 @@ document.getElementById("registerBtn").addEventListener("click", async () => {
   const nome = document.getElementById("registerNome").value;
   const email = document.getElementById("registerEmail").value;
   const senha = document.getElementById("registerSenha").value;
-  const confirmarSenha = document.getElementById("registerConfirmarSenha").value;
+  const confirmarSenha = document.getElementById(
+    "registerConfirmarSenha",
+  ).value;
 
   try {
     const response = await fetch(`${API_URL}/usuarios`, {

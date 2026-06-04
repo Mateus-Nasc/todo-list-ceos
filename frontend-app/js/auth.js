@@ -1,3 +1,4 @@
+// ajusta dinamicamente a API_URL dependendo do ambiente localhost ou produção
 const API_URL =
   window.location.hostname === "localhost"
     ? "http://localhost:3000"

@@ -1,8 +1,4 @@
-// ajusta dinamicamente a API_URL dependendo do ambiente localhost ou produção
-const API_URL =
-  window.location.hostname === "localhost"
-    ? "http://localhost:3000"
-    : window.location.origin.replace("-80.", "-3000.");
+const API_URL = "http://localhost:3000";
 
 const signin = document.getElementById("signin");
 const signup = document.getElementById("signup");
@@ -19,7 +15,8 @@ document.getElementById("goSignin").addEventListener("click", () => {
 });
 
 // SIGN IN
-document.getElementById("loginBtn").addEventListener("click", async () => {
+document.getElementById("loginBtn").addEventListener("click", async (e) => {
+  e.preventDefault();
   const email = document.getElementById("loginEmail").value;
   const senha = document.getElementById("loginSenha").value;
 
@@ -40,7 +37,7 @@ document.getElementById("loginBtn").addEventListener("click", async () => {
     console.log(data);
 
     if (response.ok) {
-      localStorage.setItem("accessToken", data.accessToken);
+      localStorage.setItem("token", data.accessToken);
       window.location.href = "dashboard.html";
     } else {
       alert(data.message || "Email ou senha inválidos.");
@@ -52,7 +49,8 @@ document.getElementById("loginBtn").addEventListener("click", async () => {
 });
 
 // SIGN UP
-document.getElementById("registerBtn").addEventListener("click", async () => {
+document.getElementById("registerBtn").addEventListener("click", async (e) => {
+  e.preventDefault();
   const nome = document.getElementById("registerNome").value;
   const email = document.getElementById("registerEmail").value;
   const senha = document.getElementById("registerSenha").value;

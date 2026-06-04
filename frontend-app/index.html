@@ -1,44 +1,61 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
+<head> <!-- Esta é a cabeça do documento, suas configurações -->
+  <meta charset="UTF-8"> <!-- caracteres especias, acentuações -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flow</title>
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/task.css">
+  <title>Flow</title> <!-- nome aba -->
+  <link rel="stylesheet" href="auth.css"> <!-- importa o css-->
 </head>
-<body>
- 
-  <!-- Header -->
-  <header>
-    <span class="logo">Flow</span>
-    <div class="line"></div>
-    <span class="logo-sub">Organize o Fluxo De Suas Tarefas</span>
-  </header>
- 
-  <main>
- 
-    <!-- Introdução -->
-    <div class="top-bar">
-      <p>Olá, <span id="nome-usuario">...</span></p>
-      <div class="search">
-        <input type="text" id="input-busca" placeholder="Buscar">
-      </div>
+<body> <!-- corpo da página -->
+
+<div class="container">
+
+  <!-- SIGN IN -->
+  <div id="signin" class="card"> 
+
+    <div class="form-side">
+      <h1><span>Login</span></h1>
+
+      <input type="email" id="loginEmail" placeholder="Email"> <!-- Colocar o email-->
+      <input type="password" id="loginSenha" placeholder="Senha"> <!-- Colocar a senha-->
+
+      <button class="main-btn" id="loginBtn">Entrar</button> <!--Botão para entrar-->
+      <button id="goSignup" class="link-btn">Não tem uma conta? Cadastre-se</button> <!-- Texto clicável/botão para ir ao SIGN UP-->
     </div>
-    <img src="img/Group.png" alt="Homem com suas tarefas" class="image">
- 
-    <div class="board" id="board">
- 
-      <!-- espacinho pra tarefa dentro dessa diva -->
- 
-      <!-- Botão para criar nova tarefa -->
-      <button class="btn-nova-lista" id="btn-add">
-        <div class="plus">+</div>
-        Nova Tarefa
-      </button>
- 
+
+    <div class="info-side">
+      <h2>Bem-vindo ao <span>Flow</span></h2>
+      <p>Organize o <span>fluxo</span> de suas tarefas</p>
+      <img src="IMAGEMDOSIGN.png" alt="Ilustração">
     </div>
-  </main>
- <script src="main.js"></script>
+
+  </div>
+
+  <!-- SIGN UP-->
+  <div id="signup" class="card hidden">
+
+    <div class="form-side">
+      <h1><span>Cadastro</span></h1>
+
+      <input type="text" id="registerNome" placeholder="Nome"> <!--colocar nome -->
+      <input type="email" id="registerEmail" placeholder="Email"> <!-- colocar email-->
+      <input type="password" id="registerSenha" placeholder="Senha"> <!-- colocar senha-->
+      <input type="password" id="registerConfirmarSenha" placeholder="Confirmar Senha"> <!-- colocar a senha denovo-->
+
+      <button class="main-btn" id="registerBtn">Criar Conta</button> <!-- Botão para criar conta-->
+      <button id="goSignin" class="link-btn">Já tem uma conta? Faça Login</button> <!-- Texto clicável/butão para SIGN IN-->
+    </div>
+
+    <div class="info-side">
+      <h2>Bem-vindo ao <span>Flow</span></h2>
+      <p>Organize o <span>fluxo</span> de suas tarefas</p>
+      <img src="IMAGEMDOSIGN.png" alt="Ilustração">
+    </div>
+
+  </div>
+
+</div>
+
+<script src="auth.js"></script> <!-- Importa o JavaScript para a página carregar-->
 </body>
 </html>

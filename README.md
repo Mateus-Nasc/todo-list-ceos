@@ -39,7 +39,7 @@ Na **raiz deste repositório** (onde este arquivo e o `docker-compose.yml` se en
 ```bash
 docker compose up -d --build
 ```
-4. Acessando as Aplicações:
+**4. Acessando as Aplicações:
 
 Frontend (Interface): http://localhost
 

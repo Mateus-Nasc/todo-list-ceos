@@ -2,7 +2,7 @@
 
 ## Flow API | Front-end
 
-Este é o repositório do Front-End da aplicação **Flow**, desenvolvido como solução para a 2ª Fase do Processo Seletivo. O design foi feito usando Figma, usando cores suaves e botões intuitivos para que qualquer um possa usar a aplicação
+Este é o repositório do Front-End da aplicação **Flow**, desenvolvido como solução para a 2ª Fase do Processo Seletivo. O design foi feito usando o Figma, tendo cores suaves e botões intuitivos para que qualquer indivíduo possa usar durante a aplicação/experiência.
 
 ---
 
@@ -18,14 +18,14 @@ Html
 
 ---
 ## Sign up e Login
-Se está usando o site pela primeira vez, clique no link que diz "Não tem uma conta? Cadastre-se"    
-e crie sua conta    
+Se está usando o site pela primeira vez, clique no link que diz "Não tem uma conta? Cadastre-se" e 
+realize o cadastramento de sua conta!    
 <img width="1327" height="666" alt="Login Page" src="https://github.com/user-attachments/assets/add18aa3-a3ba-4836-b72e-5b9ada7bfd81" />
 
 
-será necessário 3 informações    
-**nome:** Pelo menos 4 caracteres      
-**email:** Insira um email válido   
+será necessário de 3 informações para o cadastro:    
+**Nome:** Pelo menos 4 caracteres      
+**Email:** Insira um email válido   
 **Senha:** Pelo menos 6 caracteres        
 Após criar sua conta, volte na página de Login e insira as informações da sua conta    
 
@@ -41,7 +41,7 @@ Buscar tarefa;
 
 ## Criar Tarefa
 Para criar uma nova tarefa. Apenas pressione o botão "nova tarefa"    
-Ele irá criar uma tarefa com um título e descrição genérica
+Ele irá criar uma tarefa com um título e descrição genérica.
 
 ## Editar Tarefa
 Ao criar uma nova tarefa. O site preencherá o título e descrição da tarefa de forma genérica.    
@@ -59,4 +59,4 @@ Há uma aba de busca, filtrando suas tarefas pelo título.
 Apenas busque qualquer coisa e ela aparecerá.
 
 # Logout
-Há um botão no canto superior direito da tela, para caso você queira sair da sua conta
+Há um botão no canto superior direito da tela, para caso você queira sair da sua conta.

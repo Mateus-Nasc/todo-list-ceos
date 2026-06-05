@@ -1,4 +1,4 @@
-## Desafio em Equipe - Ceos Jr (2026.1)
+## Desafio em Equipe - Ceos Jr
 
 Este repositório contém a solução desenvolvida para a 2ª Fase do Processo Seletivo da **Ceos Jr**. O projeto consiste em uma aplicação Full-stack TODO List, contemplando sistema de autenticação, operações de CRUD e busca por filtros.
 

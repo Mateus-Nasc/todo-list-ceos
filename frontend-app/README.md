@@ -57,6 +57,6 @@ Além disso, do lado do botão de excluir, há o botão de concluir tarefa.
 ## Buscar tarefa
 Há uma aba de busca, filtrando suas tarefas pelo título.    
 Apenas busque qualquer coisa e ela aparecerá.
----
+
 # Logout
 Há um botão no canto superior direito da tela, para caso você queira sair da sua conta

@@ -7,7 +7,7 @@ Este repositório contém a solução desenvolvida para a 2ª Fase do Processo S
 ## Equipe Desenvolvedora
 
 * **Membro 1:** Mateus Nasc - Backend
-* **Membro 2:** Nome do Membro - 
+* **Membro 2:** Levi Ferreira Morais - Front-end
 * **Membro 3:** Nome do Membro
 * **Membro 4:** Nome do Membro
 

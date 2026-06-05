@@ -1,6 +1,6 @@
 # Projeto Todo List - Flow
 
-## Flow API | Back-end
+## Flow API | Front-end
 
 Este é o repositório do Front-End da aplicação **Flow**, desenvolvido como solução para a 2ª Fase do Processo Seletivo. O design foi feito usando Figma, usando cores suaves e botões intuitivos para que qualquer um possa usar a aplicação
 

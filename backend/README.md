@@ -1,8 +1,8 @@
 ## Projeto Todo List - Flow
 
-## Flow API | Back-end
+## Flow API | Backend
 
-Este é o repositório do back-end da aplicação **Flow**, desenvolvido como solução para a 2ª Fase do Processo Seletivo. A API foi construída utilizando o framework **NestJS**, seguindo uma abordagem de **Arquitetura Modular** para garantir escalabilidade, alta coesão e baixo acoplamento. Toda a infraestrutura está completamente conteinerizada utilizando **Docker**.
+Este é o backend da aplicação **Flow**, desenvolvido como solução para a 2ª Fase do Processo Seletivo. A API foi construída utilizando o framework **NestJS**, seguindo uma abordagem de **Arquitetura Modular** para garantir escalabilidade, alta coesão e baixo acoplamento. Toda a infraestrutura está completamente conteinerizada utilizando **Docker**.
 
 ---
 

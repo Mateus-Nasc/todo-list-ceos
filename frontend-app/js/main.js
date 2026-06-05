@@ -62,7 +62,6 @@ async function criarTarefa() {
       body: JSON.stringify({
         titulo: "Nova Tarefa",
         descricao: "Clique para editar",
-        usuarioId: payload.sub,
       }),
     });
 

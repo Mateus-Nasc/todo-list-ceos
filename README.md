@@ -23,7 +23,7 @@ Para manter a organização e facilitar a avaliação, o projeto foi dividido em
 
 ---
 
-## Executando o Projeto Completo (Docker Compose)
+## Executando o Projeto Completo (Docker)
 
 A forma mais rápida e recomendada de rodar a aplicação inteira (Frontend, Backend e Banco de Dados) é através do Docker. 
 

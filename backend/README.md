@@ -1,44 +1,121 @@
-## Projeto Todo List
+## Projeto Todo List - Flow
 
-## Readme Backend
+## TodoList API | Back-end
 
-```bash
-$ npm install
-```
+Este é o repositório do back-end da aplicação **Flow**, desenvolvido como solução para a 2ª Fase do Processo Seletivo. A API foi construída utilizando o framework **NestJS**, seguindo uma abordagem de **Arquitetura Modular** para garantir escalabilidade, alta coesão e baixo acoplamento. Toda a infraestrutura está completamente conteinerizada utilizando **Docker**.
 
-## Compile and run the project
+---
 
-```bash
-# development
-$ npm run start
+## Tecnologias e Ferramentas
 
-# watch mode
-$ npm run start:dev
+- **Framework:** [NestJS]
+- **Linguagem:** [TypeScript]
+- **Banco de Dados:** [PostgreSQL]
+- **ORM:** [TypeORM]
+- **Conteinerização:** [Docker]
+- **Segurança:** Criptografia de senhas com `bcrypt`
 
-# production mode
-$ npm run start:prod
-```
+---
 
-## Run tests
+## Arquitetura do Projeto
 
-```bash
-# unit tests
-$ npm run test
+O projeto adota uma **Arquitetura Modular**, onde a aplicação é dividida por domínios de negócio independentes. Cada módulo é autossuficiente e encapsula suas próprias responsabilidades (Controladores, Serviços, Entidades e DTOs):
 
-# e2e tests
-$ npm run test:e2e
+**Boas Práticas e Padrões Aplicados:**
 
-# test coverage
-$ npm run test:cov
-```
+- **Repository Pattern:** Isolamento da camada de persistência de dados através do TypeORM.
+- **Data Transfer Objects (DTOs):** Validação estrita de dados de entrada (`ValidationPipe`) com `class-validator`.
+- **Dependency Injection:** Gerenciamento nativo de instâncias e inversão de controle pelo NestJS.
 
-## Deployment
+## Pré-requisitos
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+Para rodar o projeto, você precisa apenas do Docker Desktop na sua máquina, caso não o tenha siga os passos do caso 2
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+1 Clonar o Repositório:
 
-```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
-```
+    ```Bash
+    git clone [https://github.com/Mateus-Nasc/todo-list-ceos.git](https://github.com/Mateus-Nasc/todo-list-ceos.git)
+    ```
+
+2 Configurar as Variáveis de Ambiente:
+
+Na pasta raiz do backend, crie um arquivo .env baseado no modelo de exemplo .env.exemplo:
+
+Abra o arquivo .env e preencha as credenciais do banco de dados e sua chave JWT correspondentes. Exemplo:
+
+    ```Bash
+    DB_TYPE=postgres
+    DB_HOST=localhost
+    DB_PORT=5432
+    DB_USERNAME=postgres
+    DB_PASSWORD=suaSenha
+    DB_DATABASE=nomeDoBanco
+
+    JWT_SECRET=crie-sua-própria-chave-secreta
+    JWT_TOKEN_AUDIENCE=http://localhost:3000
+    JWT_TOKEN_ISSUER=http://localhost:3000
+    JWT_EXPIRES_IN=3600
+    ```
+
+3 Subir a Aplicação com Docker:
+
+Navegue até a raiz do projeto onde o arquivo docker-compose.yml está localizado e execute:
+
+    ```Bash
+    docker compose up -d --build
+    ```
+
+A API estará disponivel em: http://localhost:3000
+
+### Caso 2
+
+### Pré-requisitos caso não tenha docker e queira rodar a aplicação localmente
+
+- [Node.js](https://nodejs.org/) instalado.
+- [PostgreSQL](https://www.postgresql.org/) rodando localmente.
+- Configurar as credenciais do banco de dados. Para isso siga como exemplo o modelo .env.exemplo
+
+1. Clone o repositório:
+
+   ```bash
+   git clone [https://github.com/Mateus-Nasc/todo-list-ceos.git](https://github.com/Mateus-Nasc/todo-list-ceos.git)
+
+   ```
+
+2. entre na pasta e Instale as dependencias:
+
+   ```bash
+      cd backend
+   ```
+
+   ```bash
+      npm install
+   ```
+
+3 Configurar as Variáveis de Ambiente:
+
+Na pasta raiz do backend, crie um arquivo .env baseado no modelo de exemplo .env.exemplo:
+
+Abra o arquivo .env e preencha as credenciais do banco de dados e sua chave JWT correspondentes. Exemplo:
+
+    ```Bash
+    DB_TYPE=postgres
+    DB_HOST=localhost
+    DB_PORT=5432
+    DB_USERNAME=postgres
+    DB_PASSWORD=suaSenha
+    DB_DATABASE=nomeDoBanco
+
+    JWT_SECRET=crie-sua-própria-chave-secreta
+    JWT_TOKEN_AUDIENCE=http://localhost:3000
+    JWT_TOKEN_ISSUER=http://localhost:3000
+    JWT_EXPIRES_IN=3600
+    ```
+
+### Passo Final Executando o Projeto
+
+Para iniciar o servidor:
+
+`npm run start:dev`
+
+A API estara disponivel em http://localhost:3000.

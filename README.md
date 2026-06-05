@@ -18,7 +18,7 @@ Este repositório contém a solução desenvolvida para a 2ª Fase do Processo S
 
 Para manter a organização e facilitar a avaliação, o projeto foi dividido em dois repositórios/pastas principais. **Cada diretório possui o seu próprio arquivo `README.md` detalhando as tecnologias, a arquitetura e os passos para execução individual:**
 
-* [**Frontend**](./frontend) - Aplicação construida com Javascript, Html e Css
+* [**Frontend**](./frontend-app) - Aplicação construida com Javascript, Html e Css
 * [**Backend**](./backend) - API REST desenvolvida com NestJS, TypeScript e PostgreSQL.
 
 ---

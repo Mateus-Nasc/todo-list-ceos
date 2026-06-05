@@ -98,19 +98,20 @@ Na pasta raiz do backend, crie um arquivo .env baseado no modelo de exemplo .env
 
 Abra o arquivo .env e preencha as credenciais do banco de dados e sua chave JWT correspondentes. Exemplo:
 
-    ```bash
-       DB_TYPE=postgres
-       DB_HOST=localhost
-       DB_PORT=5432
-       DB_USERNAME=postgres
-       DB_PASSWORD=suaSenha
-       DB_DATABASE=nomeDoBanco
+```bash
+   DB_TYPE=postgres
+   DB_HOST=localhost
+   DB_PORT=5432
+   DB_USERNAME=postgres
+   DB_PASSWORD=suaSenha
+   DB_DATABASE=nomeDoBanco
 
-       JWT_SECRET=crie-sua-própria-chave-secreta
-       JWT_TOKEN_AUDIENCE=http://localhost:3000
-       JWT_TOKEN_ISSUER=http://localhost:3000
-       JWT_EXPIRES_IN=3600
-    ```
+   JWT_SECRET=crie-sua-própria-chave-secreta
+   JWT_TOKEN_AUDIENCE=http://localhost:3000
+   JWT_TOKEN_ISSUER=http://localhost:3000
+   JWT_EXPIRES_IN=3600
+
+```
 
 ### Passo Final Executando o Projeto
 

@@ -33,7 +33,7 @@ Para rodar o projeto, você precisa apenas do Docker Desktop na sua máquina, ca
 
 1 Clonar o Repositório:
 
-    ```Bash
+    ```bash
     git clone [https://github.com/Mateus-Nasc/todo-list-ceos.git](https://github.com/Mateus-Nasc/todo-list-ceos.git)
     ```
 
@@ -43,7 +43,7 @@ Na pasta raiz do backend, crie um arquivo .env baseado no modelo de exemplo .env
 
 Abra o arquivo .env e preencha as credenciais do banco de dados e sua chave JWT correspondentes. Exemplo:
 
-    ```Bash
+    ```bash
     DB_TYPE=postgres
     DB_HOST=localhost
     DB_PORT=5432
@@ -61,7 +61,7 @@ Abra o arquivo .env e preencha as credenciais do banco de dados e sua chave JWT 
 
 Navegue até a raiz do projeto onde o arquivo docker-compose.yml está localizado e execute:
 
-    ```Bash
+    ```bash
     docker compose up -d --build
     ```
 
